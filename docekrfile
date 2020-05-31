@@ -1,0 +1,8 @@
+# I used:
+#   docker run --rm -it fedora:26 bash
+# and then:
+yum update -y
+yum install -y git qt5-devel gcc-c++
+git clone https://github.com/KLayout/klayout.git
+cd klayout/
+./build.sh -without-qtbinding -nopython -j2

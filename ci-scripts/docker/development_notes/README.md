@@ -54,12 +54,20 @@ Build image `myimage` with:
 $ docker build -t myimage:latest -f Dockerfile.x86_64 .
 ```
 
+```bash
+docker build --network=host -t myklayout:test -f dockerfile.fedora .
+```
+
 This creates an image called `myimage` (temporary). This image will not overwrite old ones. Tip: prune old, unused images with `docker image prune`.
 
 Then I run the docker with a terminal shell and load the volume klayout-persist in /persist:
 
 ```bash
 $ docker run --name klayout --mount source=klayout-persist,target=/persist -it myimage
+```
+
+```bash
+$ docker run --net=host --name klayout --mount source=klayout-persist,target=/persist -it myklayout:test /bin/bash
 ```
 
 ## Step 4.

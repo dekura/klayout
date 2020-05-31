@@ -1,0 +1,3 @@
+FROM fedora:26
+
+RUN mkdir -p /persist && yum update -y && yum install -y git qt5-devel gcc-c++
