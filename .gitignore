@@ -55,3 +55,4 @@ src/klayout.pro.user
 build/
 dist/
 .DS_Store
+.vscode/
