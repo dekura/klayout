@@ -54,4 +54,6 @@ src/klayout.pro.user
 *.egg-info/
 build/
 dist/
+.DS_Store
+.vscode/
 *.gds
