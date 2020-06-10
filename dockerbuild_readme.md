@@ -102,12 +102,15 @@ cd klayout/
 docker build --network=host -t myklayout:test -f dockerfile.fedora .
 docker volume create klayout-persist
 docker run --net=host --name klayout --mount source=klayout-persist,target=/persist -it myklayout:test /bin/bash
-
+# or mount directly
+docker run --net=host --name kmd -v /Users/dekura/chen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
 
 cd /persist
 git clone https://github.com/dekura/klayout.git
 cd klayout/
 ./build.sh -j4 -prefix /persist/bin/klayout
+# for debug
+./build.sh -j4 -debug -prefix /persist/bin/klayout
 ```
 
 
