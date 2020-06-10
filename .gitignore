@@ -54,3 +54,4 @@ src/klayout.pro.user
 *.egg-info/
 build/
 dist/
+*.gds
