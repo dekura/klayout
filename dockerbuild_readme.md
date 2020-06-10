@@ -19,7 +19,8 @@ FROM fedora:30
 WORKDIR /persist
 RUN mkdir -p /persist && yum update -y \
     && yum install -y git qt5-devel gcc-c++ \
-    && yum install -y ruby ruby-devel python3 python3-devel
+    && yum install -y ruby ruby-devel python3 python3-devel \
+    && echo "export PATH=/persist/bin/klayout:$PATH" >> /etc/bashrc
 ```
 
 save this two line as `dockerfile.fedora`
@@ -108,7 +109,5 @@ git clone https://github.com/dekura/klayout.git
 cd klayout/
 ./build.sh -j4 -prefix /persist/bin/klayout
 ```
-
-docker run --net=host --name klayout --mount source=klayout-persist,target=/persist -it myklayout:which /bin/bash
 
 

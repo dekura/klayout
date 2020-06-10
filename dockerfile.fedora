@@ -1,20 +1,7 @@
 FROM fedora:30
 
-RUN yum -y update \
- && yum clean all \
- && yum -y install \
-      gcc \
-      gcc-c++ \
-      make \
-      qt5-devel \
-      ruby \
-      ruby-devel \
-      python3 \
-      python3-devel \
-      git
-
-# RUN mkdir build_klayout && \
-#     git clone https://github.com/KLayout/klayout.git build_klayout && \
-#     cd build_klayout && \
-#     git checkout v0.26 && \
-#     ./build.sh -j4
+WORKDIR /persist
+RUN mkdir -p /persist && yum update -y \
+    && yum install -y git qt5-devel gcc-c++ \
+    && yum install -y ruby ruby-devel python3 python3-devel \
+    && echo "export PATH=/persist/bin/klayout:$PATH" >> /etc/bashrc
