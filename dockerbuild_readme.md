@@ -18,7 +18,7 @@ FROM fedora:30
 
 WORKDIR /persist
 RUN mkdir -p /persist && yum update -y \
-    && yum install -y git qt5-devel gcc-c++ \
+    && yum install -y make git qt5-devel gcc-c++ \
     && yum install -y ruby ruby-devel python3 python3-devel \
     && echo "export PATH=/persist/bin/klayout:$PATH" >> /etc/bashrc
 ```
