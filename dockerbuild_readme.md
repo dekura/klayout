@@ -14,9 +14,12 @@ Four step, with 4 commands to build klayout in docker.
 my dockerfile:
 
 ```docker
-FROM fedora:26
+FROM fedora:30
 
-RUN mkdir -p /persist && yum update -y && yum install -y git qt5-devel gcc-c++
+WORKDIR /persist
+RUN mkdir -p /persist && yum update -y \
+    && yum install -y git qt5-devel gcc-c++ \
+    && yum install -y ruby ruby-devel python3 python3-devel
 ```
 
 save this two line as `dockerfile.fedora`
@@ -87,7 +90,7 @@ cd /persist
 git clone https://github.com/dekura/klayout.git
 
 cd klayout/
-./build.sh -without-qtbinding -nopython -j2
+./build.sh -j4 -prefix /persist/bin/klayout
 ```
 
 
@@ -103,11 +106,6 @@ docker run --net=host --name klayout --mount source=klayout-persist,target=/pers
 cd /persist
 git clone https://github.com/dekura/klayout.git
 cd klayout/
-./build.sh -without-qtbinding -nopython -j2 -prefix /persist/bin
-./build.sh -without-qtbinding -nopython -j4 -prefix /persist/bin/klayout
-./build.sh -without-qtbinding -nopython -j4 -prefix /persist/bin/klayout
-./build.sh -without-qtbinding -j4 -prefix /persist/bin/klayout
-./build.sh -j4 -prefix /persist/bin/klayout
 ./build.sh -j4 -prefix /persist/bin/klayout
 ```
 
