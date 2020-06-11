@@ -105,6 +105,8 @@ docker run --net=host --name klayout --mount source=klayout-persist,target=/pers
 # or mount directly
 docker run --net=host --name kmd -v /Users/dekura/chen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
 
+docker run --net=host --name kmd -v /home/glchen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
+
 cd /persist
 git clone https://github.com/dekura/klayout.git
 cd klayout/
