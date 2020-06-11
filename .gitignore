@@ -56,6 +56,6 @@ build/
 dist/
 .DS_Store
 .vscode/
-*.gds
+# *.gds
 # *.oas
 testdata/python/bug109.oas
