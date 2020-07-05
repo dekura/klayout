@@ -55,4 +55,6 @@ src/klayout.pro.user
 build/
 dist/
 *.gds
-*.oas
+*.oas.DS_Store
+testdata/python/bug109.oas
+testdata/.DS_Store
