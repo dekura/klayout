@@ -65,14 +65,14 @@ direct create a folder to store your data, such as
 
 ## Step four: Run docker image with data volume
 
-deprecated:
+Deprecated:
 
 
 ~~`docker run --net=host --name klayout --mount source=klayout-persist,target=/persist -it myklayout:test /bin/bash`~~
 
 
 
-Use:
+Please use:
 
 ```bash
 docker run --net=host --name kmd -v /Users/dekura/chen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
