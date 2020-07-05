@@ -85,11 +85,21 @@ docker run --net=host --name kmd -v /Users/dekura/chen/docker-persist/klayout-pe
 
 ## Be happy with building KLayout
 
+the file tree is
+
+```bash
+persist/
+    bin/
+        klayout/      # -- to save the klayout binarary
+    klayout/          # -- the klayout source code
+```
+
+
 ```bash
 cd /persist
-mkdir bin
-git clone https://github.com/dekura/klayout.git
+mkdir bin && cd bin && mkdir klayout && cd ..
 
+git clone https://github.com/dekura/klayout.git
 cd klayout/
 ./build.sh -j4 -prefix /persist/bin/klayout
 ```
@@ -102,11 +112,9 @@ cd klayout/
 docker build --network=host -t myklayout:test -f dockerfile.fedora .
 # or mount directly
 docker run --net=host --name kmd -v /Users/dekura/chen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
-
-docker run --net=host --name kmd -v /home/glchen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
-
+# docker run --net=host --name kmd -v /home/glchen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
 cd /persist
-mkdir bin
+mkdir bin && cd bin && mkdir klayout && cd ..
 git clone https://github.com/dekura/klayout.git
 cd klayout/
 ./build.sh -j4 -prefix /persist/bin/klayout
