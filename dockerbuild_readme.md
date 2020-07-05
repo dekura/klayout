@@ -51,36 +51,35 @@ myklayout                  test                6b780d7e7423        23 minutes ag
 
 Because docker will not save the data for you, create a volume and mount it to docker, by run:
 
-```bash
-docker volume create klayout-persist
-```
+**!Important**: because `docker volume` is not convient for the data transfer, so it is deprecated.
 
-Check your volume by run:
-
-```bash
-docker volume inspect klayout-persist
+~~`docker volume create klayout-persist`~~
 
 
-[
-    {
-        "CreatedAt": "2020-05-31T05:47:13Z",
-        "Driver": "local",
-        "Labels": {},
-        "Mountpoint": "/var/lib/docker/volumes/klayout-persist/_data",
-        "Name": "klayout-persist",
-        "Options": {},
-        "Scope": "local"
-    }
-]
-```
+
+direct create a folder to store your data, such as
+
+`/Users/dekura/chen/docker-persist/klayout-persist`
 
 
 
 ## Step four: Run docker image with data volume
 
+deprecated:
+
+
+~~`docker run --net=host --name klayout --mount source=klayout-persist,target=/persist -it myklayout:test /bin/bash`~~
+
+
+
+Use:
+
 ```bash
-docker run --net=host --name klayout --mount source=klayout-persist,target=/persist -it myklayout:test /bin/bash
+docker run --net=host --name kmd -v /Users/dekura/chen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
 ```
+
+
+
 
 
 
@@ -88,6 +87,7 @@ docker run --net=host --name klayout --mount source=klayout-persist,target=/pers
 
 ```bash
 cd /persist
+mkdir bin
 git clone https://github.com/dekura/klayout.git
 
 cd klayout/
@@ -100,18 +100,17 @@ cd klayout/
 
 ```bash
 docker build --network=host -t myklayout:test -f dockerfile.fedora .
-docker volume create klayout-persist
-docker run --net=host --name klayout --mount source=klayout-persist,target=/persist -it myklayout:test /bin/bash
 # or mount directly
 docker run --net=host --name kmd -v /Users/dekura/chen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
 
 docker run --net=host --name kmd -v /home/glchen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
 
 cd /persist
+mkdir bin
 git clone https://github.com/dekura/klayout.git
 cd klayout/
 ./build.sh -j4 -prefix /persist/bin/klayout
-# for debug
+# for debug, you don't need it when you only need to build.
 ./build.sh -j4 -debug -prefix /persist/bin/klayout
 ```
 
