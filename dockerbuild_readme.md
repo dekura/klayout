@@ -31,11 +31,11 @@ then run
 docker build --network=host -t myklayout:test -f dockerfile.fedora .
 ```
 
-Please note the the flag `--network=host` is required, otherwise the network in docker is unreachable.
+Please note the flag `--network=host` is required, otherwise the network in docker is unreachable.
 
 
 
-### you will get
+### You will get
 
 a docker image named `myklayout:test`
 
@@ -51,7 +51,7 @@ myklayout                  test                6b780d7e7423        23 minutes ag
 
 Because docker will not save the data for you, create a volume and mount it to docker, by run:
 
-**!Important**: because `docker volume` is not convient for the data transfer, so it is deprecated.
+**!Important**: because `docker volume` is not convenient for the data transfer, so it is deprecated.
 
 ~~`docker volume create klayout-persist`~~
 
