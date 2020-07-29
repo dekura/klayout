@@ -76,6 +76,10 @@ Please use:
 
 ```bash
 docker run --net=host --name kmd -v /Users/dekura/chen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
+
+
+# on proj12
+docker run --net=host --name kmd -v /home/glchen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
 ```
 
 
@@ -120,6 +124,9 @@ cd klayout/
 ./build.sh -j4 -prefix /persist/bin/klayout
 # for debug, you don't need it when you only need to build.
 ./build.sh -j4 -debug -prefix /persist/bin/klayout
+
+# for non-gui build
+./build.sh -j4 -debug -prefix /persist/bin/klayout-non-gui
 ```
 
 

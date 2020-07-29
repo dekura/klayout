@@ -58,4 +58,7 @@ dist/
 .vscode/
 # *.gds
 # *.oas
-testdata/python/bug109.oas
+testdata/python/bug109.oasqt5Brew.bin.macos-Catalina-debug-RsysPhb37
+qt5Brew.build.macos-Catalina-debug-RsysPhb37
+qt5Brew.build.macos-Catalina-debug-RsysPhb37.log
+qt5Brew.bin.macos-Catalina-debug-RsysPhb37

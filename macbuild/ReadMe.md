@@ -237,4 +237,12 @@ No need to say, KLayout is a great tool! <br>
 With the object-oriented script language (both Ruby and Python) support, our error-prone jobs can be simplified and speed-up.<br>
 Building KLayout from its source code is not difficult. Try it with your favorite environment!
 
-[End of File]
+# In my system
+
+The best build way for dev is: `6D`, and use `-d` to enable debug mode for dev.
+
+```
+$ cd /where/'build.sh'/exists
+$ ./build4mac.py -q qt5brew -r sys -p hb37 -d
+$ ./build4mac.py -q qt5brew -r sys -p hb37 -d -y
+```
