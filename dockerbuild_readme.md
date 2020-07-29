@@ -20,8 +20,11 @@ WORKDIR /persist
 RUN mkdir -p /persist && yum update -y \
     && yum install -y make git qt5-devel gcc-c++ \
     && yum install -y ruby ruby-devel python3 python3-devel \
-    && echo "export PATH=/persist/bin/klayout:$PATH" >> /etc/bashrc
+    && echo ". /persist/bin/mybashrc" >> /etc/bashrc
 ```
+
+
+
 
 save this two line as `dockerfile.fedora`
 
@@ -61,6 +64,17 @@ direct create a folder to store your data, such as
 
 `/Users/dekura/chen/docker-persist/klayout-persist`
 
+Then create a bin folder and a `mybasrc` file to store the `env` path.
+
+
+```bash
+cd /Users/dekura/chen/docker-persist/klayout-persist
+mkdir bin
+cd bin
+touch mybashrc
+echo "export PATH=/persist/bin/klayout:$PATH" >> mybashrc
+```
+
 
 
 ## Step four: Run docker image with data volume
@@ -94,6 +108,7 @@ the file tree is
 ```bash
 persist/
     bin/
+        mybashrc
         klayout/      # -- to save the klayout binarary
     klayout/          # -- the klayout source code
 ```
