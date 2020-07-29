@@ -353,6 +353,7 @@ _tl_sources = set(glob.glob(os.path.join(_tl_path, "*.cc")))
 # Exclude sources which are compatible with Qt only
 # Caveat, in source distribution tarballs from pypi, these files will
 # not exist. So we need an error-free discard method instead of list's remove.
+# test for the non GUI build
 _tl_sources.discard(os.path.join(_tl_path, "tlHttpStreamQt.cc"))
 _tl_sources.discard(os.path.join(_tl_path, "tlHttpStreamNoQt.cc"))
 _tl_sources.discard(os.path.join(_tl_path, "tlFileSystemWatcher.cc"))
