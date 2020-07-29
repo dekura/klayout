@@ -88,15 +88,17 @@ Deprecated:
 Please use:
 
 ```bash
+# please change the path to your own data-persist path
+
 docker run --net=host --name kmd -v /Users/dekura/chen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
 
 
 # on proj12
-docker run --net=host --name kmd -v /home/glchen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
+# docker run --net=host --name kmd -v /home/glchen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
 
 
 # on xfgw
-docker run --net=host --name kb -v /home/xfyao/docker-persist/klayout-persist:/persist -it myklayout:bash /bin/bash
+# docker run --net=host --name kb -v /home/xfyao/docker-persist/klayout-persist:/persist -it myklayout:bash /bin/bash
 
 
 cd /persist/bin
@@ -121,14 +123,32 @@ persist/
 ```
 
 
+### clone Klayout first
+
 ```bash
 cd /persist
 mkdir bin && cd bin && mkdir klayout && cd ..
 
 git clone https://github.com/dekura/klayout.git
+```
+
+
+
+### Build release version with GUI
+
+
+```bash
 cd klayout/
 ./build.sh -j4 -prefix /persist/bin/klayout
 ```
+
+### Build debug version without GUI
+
+```bash
+cd klayout/
+./build.sh -j4 -debug -without-qt -prefix /persist/bin/klayout-non-gui
+```
+
 
 
 
