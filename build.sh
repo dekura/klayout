@@ -333,9 +333,9 @@ if [ "$RUBY" != "" ] && [ "$RUBY" != "-" ]; then
       else
         echo "*** WARNING: Could not locate Ruby library"
         echo "    Candidates are:"
-        echo "      $RUBYLIBFILEPATH/$RUBYLIBFILENAME"
         echo "      $RUBYLIBFILEPATH/$RUBYLIBFILENAME_SO"
         echo "      $RUBYLIBFILEPATH/$RUBYLIBFILENAME_A"
+        echo "      $RUBYLIBFILEPATH/$RUBYLIBFILENAME"
         echo "    (none of them could be found)"
       fi
     fi
@@ -363,9 +363,9 @@ if [ "$RUBY" != "" ] && [ "$RUBY" != "-" ]; then
   fi
 
   echo "    Ruby installation is in:"
-  echo "    - $RUBYLIBFILE (lib)"
-  echo "    - $RUBYINCLUDE (headers)"
   echo "    - $RUBYINCLUDE2 (arch headers)"
+  echo "    - $RUBYINCLUDE (headers)"
+  echo "    - $RUBYLIBFILE (lib)"
   echo "    Ruby version code is $RUBYVERSIONCODE"
   echo ""
 
