@@ -31,7 +31,7 @@ save this two line as `dockerfile.fedora`
 then run
 
 ```bash
-docker build --network=host -t myklayout:test -f dockerfile.fedora .
+docker build --network=host -t myklayout:bash -f dockerfile.fedora .
 ```
 
 Please note the flag `--network=host` is required, otherwise the network in docker is unreachable.
@@ -72,7 +72,6 @@ cd /Users/dekura/chen/docker-persist/klayout-persist
 mkdir bin
 cd bin
 touch mybashrc
-echo "export PATH=/persist/bin/klayout:$PATH" >> mybashrc
 ```
 
 
@@ -94,6 +93,14 @@ docker run --net=host --name kmd -v /Users/dekura/chen/docker-persist/klayout-pe
 
 # on proj12
 docker run --net=host --name kmd -v /home/glchen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
+
+
+# on xfgw
+docker run --net=host --name kb -v /home/xfyao/docker-persist/klayout-persist:/persist -it myklayout:bash /bin/bash
+
+
+cd /persist/bin
+echo "export PATH=/persist/bin/klayout:$PATH" >> mybashrc
 ```
 
 
@@ -129,19 +136,32 @@ cd klayout/
 
 ```bash
 docker build --network=host -t myklayout:test -f dockerfile.fedora .
-# or mount directly
+
+
+# mount directly
 docker run --net=host --name kmd -v /Users/dekura/chen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
+
+# on proj12
 # docker run --net=host --name kmd -v /home/glchen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
+
+# on xfyao
+# docker run --net=host --name kmd -v /home/glchen/docker-persist/klayout-persist:/persist -it klayout:make /bin/bash
+
+# attach into docker images
+
 cd /persist
 mkdir bin && cd bin && mkdir klayout && cd ..
 git clone https://github.com/dekura/klayout.git
 cd klayout/
+
+# for build
 ./build.sh -j4 -prefix /persist/bin/klayout
+
 # for debug, you don't need it when you only need to build.
 ./build.sh -j4 -debug -prefix /persist/bin/klayout
 
 # for non-gui build
-./build.sh -j4 -debug -prefix /persist/bin/klayout-non-gui
+./build.sh -j4 -debug -without-qt -prefix /persist/bin/klayout-non-gui
 ```
 
 
