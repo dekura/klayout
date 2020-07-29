@@ -11,7 +11,7 @@ Four step, with 4 commands to build klayout in docker.
 
 
 > Tip!:
-if the network of your docker is extremely slow, you can consider change the mirror of docker following [this article](https://zhuanlan.zhihu.com/p/109485448).
+if the network of your docker is extremely slow, you can consider change the mirror of docker following [this article](https://zhuanlan.zhihu.com/p/109485448). My VPN is quite good, so I don't have to.
 
 ## 2. Step two, pull docker image by using my docker-file
 
