@@ -58,3 +58,6 @@ dist/
 *.oas.DS_Store
 testdata/python/bug109.oas
 testdata/.DS_Store
+qt5Brew.bin.macos-Catalina-debug-RsysPhb37
+qt5Brew.build.macos-Catalina-debug-RsysPhb37
+qt5Brew.build.macos-Catalina-debug-RsysPhb37.log
