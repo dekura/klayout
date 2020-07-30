@@ -169,6 +169,10 @@ docker run --net=host --name kmd -v /Users/dekura/chen/docker-persist/klayout-pe
 cd /persist
 mkdir bin && cd bin && mkdir klayout && cd ..
 
+cd bin
+echo "export PATH=/persist/bin/klayout:$PATH" >> mybashrc
+
+cd /persist
 # clone klayout
 git clone https://github.com/dekura/klayout.git
 cd klayout/
@@ -177,13 +181,13 @@ cd klayout/
 git checkout -b guojin0.26
 
 # for release build
-./build.sh -j4 -prefix /persist/bin/klayout
+./build.sh -j4 -prefix /persist/bin/klayout-release
 
 # for debug, you don't need it when you only need to build.
 ./build.sh -j4 -debug -prefix /persist/bin/klayout
 
 # for non-gui build
-./build.sh -j4 -debug -without-qt -prefix /persist/bin/klayout
+./build.sh -j4 -debug -without-qt -prefix /persist/bin/klayout-non-gui
 ```
 
 
