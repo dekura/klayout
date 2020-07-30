@@ -188,6 +188,9 @@ git checkout -b guojin0.26
 
 # for non-gui build
 ./build.sh -j4 -debug -without-qt -prefix /persist/bin/klayout-non-gui
+
+# for non-gui with ruby build
+./build.sh -j4 -debug -without-qtbinding -prefix /persist/bin/klayout-without-qtbinding -build ./build-debug-without-qtbinding
 ```
 
 
