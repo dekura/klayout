@@ -6,14 +6,14 @@ inst=$(dirname $0)
 
 export LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH
 
-make klayout 
+# make klayout 
 
 for t in drctest drctest2; do
 
   echo "-----------------------------------------------"
   echo "Run drctest.drc ..."
 
-  ./klayout -zz -r $inst/$t.drc
+  klayout -zz -r $inst/$t.drc
 
   strmcmp ${t}_out.gds $inst/${t}_au.oas.gz
 
