@@ -13,9 +13,9 @@ for t in drctest drctest2; do
   echo "-----------------------------------------------"
   echo "Run drctest.drc ..."
 
-  ./klayout -zz -r $inst/$t.drc
+  klayout -zz -r $inst/$t.drc
 
-  strmcmp ${t}_out.gds $inst/${t}_au.oas.gz
+#   strmcmp ${t}_out.gds $inst/${t}_au.oas.gz
 
 done
 
